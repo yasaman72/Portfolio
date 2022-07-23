@@ -2804,16 +2804,15 @@ input, select, textarea {
 		cursor: default;
 		list-style: none;
 		padding-left: 0;
-		margin: auto;
-		vertical-align: middle;
+		padding-right: 3rem;
+		/* margin: auto;
+		vertical-align: middle; */
 	}
 
 		ul.icons li {
 			display: inline-block;
 			padding: 0 0.5rem 0 0;
 			vertical-align: middle;
-
-
 		}
 
 			ul.icons li:last-child {
@@ -4245,7 +4244,7 @@ input, select, textarea {
 					-webkit-align-items: center;
 					-ms-align-items: center;
 					align-items: center;
-					padding: 3.15rem 4rem;
+					padding: 1rem 4rem;
 				}
 
 					#footer > section.split.contact > section > * {
@@ -4276,7 +4275,7 @@ input, select, textarea {
 					}
 
 					#footer > section.split.contact > section:first-child {
-						padding: 4rem 4rem 3rem 4rem;
+						padding: 4rem 1rem 1rem 4rem;
 					}
 
 					#footer > section.split.contact > section:last-child {
