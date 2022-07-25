@@ -2923,7 +2923,7 @@ input, select, textarea {
 
 		header > .date {
 			display: block;
-			font-size: 0.8rem;
+			font-size: 0.5rem;
 			height: 1;
 			margin: 0 0 1rem 0;
 			position: relative;
@@ -2969,7 +2969,7 @@ input, select, textarea {
 			}
 
 			header.major > .date {
-				font-size: 1rem;
+				font-size: 0.8rem;
 				margin: 0 0 4rem 0;
 			}
 
