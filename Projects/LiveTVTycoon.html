@@ -5,8 +5,73 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+	
+	  <!-- Google API -->
+	  <script src="https://apis.google.com/js/api.js"></script>
+	  <!-- easyData -->
+	  <script type="text/javascript" src="/assets/js/easyData-google-sheets.js"></script>
+	
+	  <!-- easyData - Creating table -->
+	  <script>
+		
+		  {
+			// Your API KEY
+			const API_KEY = "AIzaSyD1cZeHKTiZlPNhem5eMZlpnRpNEirBY7E";
+			const PageDBIndex = 6;
+	
+			function displayResult2(response) {
+				let ProjectName = "";
+				let ProjectDate = "";
+				let description = "";
+				let MyDescription = "";
+				let Engine = "";
+				let MyRoles = "";
+				let ProjectURL = "";
+
+	
+			  response.result.values.forEach((row, index) => {
+				if(index === PageDBIndex) {
+					ProjectName = row[0];
+					ProjectDate = row[1];
+					description = row[2];
+					MyDescription = row[3];
+					Engine = row[4];
+					MyRoles = row[5];
+					ProjectURL = row[6];
+				}
+			  });
+	
+			  try {document.getElementById("ProjectName").innerHTML = ProjectName;} catch(err){};
+			  try {document.getElementById("ProjectDate").innerHTML = ProjectDate} catch(err){};
+			  try {document.getElementById("ProjectDesc").innerHTML = description} catch(err){};
+			  try {document.getElementById("MyDescription").innerHTML = MyDescription} catch(err){};
+			  try {document.getElementById("Engine").innerHTML = Engine} catch(err){};
+			  try {document.getElementById("MyRoles").innerHTML = MyRoles} catch(err){};
+			  try {document.getElementById("ProjectURL").href = ProjectURL} catch(err){};
+
+			}
+	
+			function loadData() {
+			  // Spreadsheet ID
+			  const spreadsheetId = "19Crw83BhEfjclzt7x-FCre4LrPVtnQKcP9WuoTOhCzg";
+			  const range = "A:Z";
+			  getPublicValues({ spreadsheetId, range }, displayResult2);
+			}
+	
+			window.addEventListener("load", (e) => {
+			  initOAuthClient({ apiKey: API_KEY });
+			});
+	
+			document.addEventListener("gapi-loaded", (e) => {
+			  loadData();
+			});
+		  }
+		
+	  </script>
+
+
 	<head>
-		<title>Yasaman Farazan - Live TV Tycoon</title>
+		<title>Yasaman Farazan - Daberna</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
@@ -31,10 +96,10 @@
 						<li><a href="https://www.notion.so/yasaman/Yasaman-Blogs-352975e6507847c5bf260d7be64744c4" target="_blank">blog</a></li>
                     </ul>
                     <ul class="icons">
-                        <li><a href="https://www.linkedin.com/in/yasaman-farazan/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-                        <li><a href="https://twitter.com/YFarazan" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="https://www.instagram.com/yasamanfarazan/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="https://github.com/yasaman72" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="https://www.linkedin.com/in/yasaman-farazan/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                        <li><a href="https://twitter.com/YFarazan" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="https://www.instagram.com/yasamanfarazan/?hl=en" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="https://github.com/yasaman72" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
                     </ul>
                 </nav>
 
@@ -44,14 +109,17 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>Live TV Tycoon</h1>
-									<span class="date">Jul 2016 - Sep 2017</span>
-									<p>Live TV Tycoon is a mobile game about managing a TV station. The player
-										creates TV shows, gains fans, buys various studios, competes with other
-										players, and directs her shows. 
-										This game was our small team’s first commercial attempt.</p>
+									<h1 id = "ProjectName">
+										<!-- project name -->
+									</h1>
+									<span class="date" id="ProjectDate">
+										<!-- data -->
+									</span>
+									<p id="ProjectDesc">
+                                        <!-- about the project -->
+                                        </p>
 								</header>
-								<div class="box alt">
+                                <div class="box alt">
 									<div class="row gtr-50 gtr-uniform">
 										<div class="col-4"><span class="image fit"><img src="../images/LiveTVTycoon/LiveTvTycoon_Pic1.png" alt="Live Tv Tycoon mobiel game" /></span></div>
 										<div class="col-4"><span class="image fit"><img src="../images/LiveTVTycoon/LiveTvTycoon_Pic2.png" alt="Live Tv Tycoon mobiel game" /></span></div>
@@ -60,23 +128,20 @@
 								</div>
 								<ul>
 									<li>
-										Game Engine: <b>Unity</b>
+										Game Engine: <b id="Engine">
+											<!-- Unity -->
+										</b>
 									</li>
 									<li>
 										My Role: 
-										<b>Creative Director</b>, 
-										<b>Game Designer</b>, 
-										<b>UI Programmer</b>, 
-										<b>Animator</b>
+										<span id ="MyRoles"></span>
 									</li>
 								</ul>
-								<p>Our indie team's first commercial experience was a tycoon mobile game, 
-									providing the experience of managing a TV station. 
-									As the game designer and creative director, 
-									I ensured the project's vision was clear for all team members during different phases of development. 
-									I learned and executed agile development for the first time in this project.</p>
+								<p id="MyDescription">
+									<!-- what I did in this project -->
+                                </p>
 									<ul class="actions special">
-										<li><a href="https://livetvtycoon.com/"  class="button primary">Check it out</a></li>
+										<li><a  href="" id="ProjectURL" target="_blank" class="button primary">Check it out</a></li>
 									</ul>
 							</section>
 
@@ -96,15 +161,15 @@
 							<section>
 								<h3>Email</h3>
 								
-								<p><a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;tf=1&amp;source=mailto&amp;to=y.farazan@gmail.com">y.farazan@gmail.com</a></p>
+								<p><a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;tf=1&amp;source=mailto&amp;to=y.farazan@gmail.com" target="_blank">y.farazan@gmail.com</a></p>
 							</section>
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/yasaman-farazan/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-									<li><a href="https://twitter.com/YFarazan" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="https://www.instagram.com/yasamanfarazan/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/yasaman72" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/yasaman-farazan/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+									<li><a href="https://twitter.com/YFarazan" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.instagram.com/yasamanfarazan/?hl=en" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://github.com/yasaman72" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</section>
 						</section>
@@ -113,8 +178,8 @@
 				<!-- Copyright -->
 					<div id="copyright">
 						<ul>
-							<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-							<li>Images Credit: <a href="https://unsplash.com">Unsplash</a></li>
+							<li>Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+							<li>Images Credit: <a href="https://unsplash.com" target="_blank">Unsplash</a></li>
 						</ul>
 					</div>
 
@@ -130,4 +195,5 @@
 			<script src="../assets/js/main.js"></script>
 
 	</body>
+
 </html>
