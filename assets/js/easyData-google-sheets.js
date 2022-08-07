@@ -1,4 +1,4 @@
-// Google Sheets
+// Google Sheets 
 
 const GS_SCOPE = "https://www.googleapis.com/auth/spreadsheets.readonly";
 const GS_API_URL = "https://sheets.googleapis.com/$discovery/rest?version=v4";
