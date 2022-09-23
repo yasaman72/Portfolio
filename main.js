@@ -32,3 +32,29 @@ class MyFooter extends HTMLElement{
 }
 
 customElements.define('my-footer', MyFooter)
+
+
+class MyNav extends HTMLElement{
+    connectedCallback(){
+
+        this.innerHTML = `
+        <nav id="nav">
+        <ul class="links">
+        <!-- <li class="active"><a href="index.html">projects</a></li> -->
+            <li><a href="/index.html">projects</a></li>
+            <li><a href="/resume.html">resume</a></li>
+            <li><a href="/about.html">about</a></li>
+            <!-- <li><a href="https://www.notion.so/yasaman/Yasaman-Blogs-352975e6507847c5bf260d7be64744c4" target="_blank">blog</a></li> -->
+        </ul>
+        <ul class="icons">
+            <li><a href="https://www.linkedin.com/in/yasaman-farazan/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+            <li><a href="https://twitter.com/YFarazan" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="https://www.instagram.com/yasamanfarazan/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="https://github.com/yasaman72" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+    </nav>
+        `
+    }
+}
+
+customElements.define('my-nav', MyNav)
