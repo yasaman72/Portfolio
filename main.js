@@ -11,10 +11,10 @@ class MyFooter extends HTMLElement{
                 <section>
                     <h3>Social</h3>
                     <ul class="icons alt">
-                        <li><a href="https://www.linkedin.com/in/yasaman-farazan/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-                        <li><a href="https://twitter.com/YFarazan" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="https://www.instagram.com/yasamanfarazan/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="https://github.com/yasaman72" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="https://www.linkedin.com/in/yasaman-farazan/" class="icon brands fa-linkedin"><span class="label" target="_blank">Linkedin</span></a></li>
+                        <li><a href="https://twitter.com/YFarazan" class="icon brands fa-twitter"><span class="label" target="_blank">Twitter</span></a></li>
+                        <li><a href="https://www.instagram.com/yasamanfarazan/?hl=en" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+                        <li><a href="https://github.com/yasaman72" class="icon brands fa-github"><span class="label" target="_blank">GitHub</span></a></li>
                     </ul>
                 </section>
             </section>
