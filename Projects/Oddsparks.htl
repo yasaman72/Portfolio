@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<script type=module src=../main.js></script>
+
+<html>
+	
+	  <!-- Google API -->
+	<script src="https://apis.google.com/js/api.js"></script>
+	
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-R353B4MPK4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-R353B4MPK4');
+	</script>
+	  <!-- easyData -->
+	<script type="text/javascript" src="/assets/js/easyData-google-sheets.js"></script>
+	
+	  <!-- easyData - Creating table -->
+	  <script>
+		
+		  {
+			// Your API KEY
+			const API_KEY = "AIzaSyD1cZeHKTiZlPNhem5eMZlpnRpNEirBY7E";
+			const PageDBIndex = 21;
+	
+			function displayResult2(response) {
+				let ProjectName = "";
+				let ProjectDate = "";
+				let description = "";
+				let MyDescription = "";
+				let Engine = "";
+				let MyRoles = "";
+				let ProjectURL = "";
+
+	
+			  response.result.values.forEach((row, index) => {
+				if(index === PageDBIndex) {
+					ProjectName = row[0];
+					ProjectDate = row[1];
+					description = row[2];
+					MyDescription = row[3];
+					Engine = row[4];
+					MyRoles = row[5];
+					ProjectURL = row[6];
+				}
+			  });
+	
+			  try {document.getElementById("ProjectName").innerHTML = ProjectName;} catch(err){};
+			  try {document.getElementById("ProjectDate").innerHTML = ProjectDate} catch(err){};
+			  try {document.getElementById("ProjectDesc").innerHTML = description} catch(err){};
+			  try {document.getElementById("MyDescription").innerHTML = MyDescription} catch(err){};
+			  try {document.getElementById("Engine").innerHTML = Engine} catch(err){};
+			  try {document.getElementById("MyRoles").innerHTML = MyRoles} catch(err){};
+			  try {document.getElementById("ProjectURL").href = ProjectURL} catch(err){};
+
+			}
+	
+			function loadData() {
+			  // Spreadsheet ID
+			  const spreadsheetId = "19Crw83BhEfjclzt7x-FCre4LrPVtnQKcP9WuoTOhCzg";
+			  const range = "A:Z";
+			  getPublicValues({ spreadsheetId, range }, displayResult2);
+			}
+	
+			window.addEventListener("load", (e) => {
+			  initOAuthClient({ apiKey: API_KEY });
+			});
+	
+			document.addEventListener("gapi-loaded", (e) => {
+			  loadData();
+			});
+		  }
+		
+	  </script>
+
+
+	<head>
+		<title>Oddsparks: An Automation Adventure</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../index.html" class="logo">Yasaman Farazan</a>
+					</header>
+
+				<!-- Nav -->
+				<my-nav></my-nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1 id = "ProjectName">
+										<!-- project name -->
+									</h1>
+									<span class="date" id="ProjectDate">
+										<!-- data -->
+									</span>
+									<p id="ProjectDesc">
+                                        <!-- about the project -->
+                                        </p>
+								</header>
+                                <div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+										<div class="col-4"><span class="image fit"><img src="../images/OddSparks/Odd Sparks 1.jpg" alt="" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="../images/OddSparks/Odd Sparks 2.jpg" alt=""  /></span></div>
+										<div class="col-4"><span class="image fit"><img src="../images/OddSparks/Odd Sparks 3.jpg" alt="" /></span></div>
+									</div>
+      						<div class="row gtr-50 gtr-uniform">
+										<div class="col-4"><span class="image fit"><img src="../images/OddSparks/Odd Sparks 4.jpg" alt="" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="../images/OddSparks/Odd Sparks 5.jpg" alt="" /></span></div>
+									</div>
+								</div>
+								<ul>
+									<li>
+										Game Engine: <b id="Engine">
+											<!-- Unity -->
+										</b>
+									</li>
+									<li>
+										My Role: 
+										<span id ="MyRoles"></span>
+									</li>
+								</ul>
+								<p id="MyDescription">
+									<!-- what I did in this project -->
+                                </p>
+									<ul class="actions special">
+										<li><a  href="" id="ProjectURL" target="_blank" class="button primary">Check it out</a></li>
+									</ul>
+							</section>
+
+					</div>
+					<my-footer></my-footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/easyData-google-sheets.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+
+</html>
